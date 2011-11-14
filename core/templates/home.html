@@ -1,0 +1,23 @@
+{% extends "page.html" %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+  {% for weekday, d, meals in groups %}
+  <strong class='meal_title'>{{ weekday }} {{ d }}</strong>
+  <ul class='meals'>
+  {% for meal in meals %}
+    <li class='meal'><strong class='meal_title'>{{ meal.type.name }}</strong><br/>
+        <em>{{ meal.notes }}</em>
+        <ul class='mealitems'>
+          {% for item in meal.mealitem_set.all %}
+            <li class='mealitem'>{{ item.name }} {% if item.vegetarian %}(V){% endif %}</li>
+          {% endfor %}
+        </ul>
+    </li>
+  {% endfor %}
+  </ul>
+  {% endfor %}
+{% endblock %}
