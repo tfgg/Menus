@@ -74,6 +74,9 @@ for i, row in enumerate(rows):
   if i == 0:
     week = day_name
     continue
+
+  MealItem.objects.filter(meal__date=date).delete()
+  Meal.objects.filter(date=date).delete()
   
   if brunch_day:
     print day, day_name
