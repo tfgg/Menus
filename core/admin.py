@@ -2,7 +2,14 @@ from django.contrib import admin
 
 import models
 
-admin.site.register(models.Meal)
+class MealItemAdmin(admin.TabularInline):
+  model = models.MealItem
+
+class MealAdmin(admin.ModelAdmin):
+  model = models.Meal
+  inlines = [MealItemAdmin,]
+
+admin.site.register(models.Meal, MealAdmin)
 admin.site.register(models.MealType)
 admin.site.register(models.MealItem)
 
