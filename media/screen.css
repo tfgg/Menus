@@ -10,16 +10,20 @@ body {
 }
 
 ul.meals {
-  list-style:none
+  list-style:none;
+  margin:0;
+  padding:0;
 }
 
 li.meal {
   margin-bottom:0.5em;
+  margin:0;
 }
 
 ul.mealitems {
   list-style:none;
   padding:0.2em;
+  display:block;
 }
 
 .meal_title {

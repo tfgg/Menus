@@ -9,9 +9,10 @@
   <strong class='meal_title'>{{ weekday }} {{ d }}</strong>
   <ul class='meals'>
   {% for meal in meals %}
-    <li class='meal'><strong class='meal_title'>{{ meal.type.name }}</strong><br/>
-        <em>{{ meal.notes }}</em>
+    <li class='meal'>
         <ul class='mealitems'>
+          <li class='meal_title'><strong class='meal_title'>{{ meal.type.name }}</strong></li>
+          <li class='mean_notes'>{{ meal.notes }}</li>
           {% for item in meal.mealitem_set.all %}
             <li class='mealitem'>{{ item.name }} {% if item.vegetarian %}(V){% endif %}</li>
           {% endfor %}

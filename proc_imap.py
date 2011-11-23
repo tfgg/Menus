@@ -21,7 +21,7 @@ for num in data[0].split():
 
     date = datetime.datetime.fromtimestamp(time.mktime(email.utils.parsedate(e.get('date'))))
 
-    if date.timetuple() < datetime.date.today().timetuple():
+    if date.timetuple() < (datetime.date.today() - datetime.timedelta(7)).timetuple():
       continue
 
     start_date = last_monday(date.date())
