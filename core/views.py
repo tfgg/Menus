@@ -8,7 +8,7 @@ from models import Meal, MealType, MealItem
 
 def home(request):
   now = datetime.date.today()
-  meals = Meal.objects.filter(date__gt=now).order_by('date', 'type__time')
+  meals = Meal.objects.filter(date__gte=now).order_by('date', 'type__time')
   #meals = Meal.objects.order_by('date', 'type__time')
 
   groups = []
