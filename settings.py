@@ -70,6 +70,10 @@ STATIC_URL = '/menu/static/'
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/menu/static/admin/'
 
+LOGIN_URL = '/menu/accounts/login/'
+
+FORCE_SCRIPT_NAME = '/menu'
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".

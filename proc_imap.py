@@ -12,6 +12,13 @@ def last_sunday(date):
     date = date - datetime.timedelta(1)
   return date
 
+def nearest_sunday(date):
+  date = date + datetime.timedelta(3)
+  while date.weekday() != 6:
+    date = date - datetime.timedelta(1)
+  return date
+	
+
 M = imaplib.IMAP4_SSL("imap.gmail.com")
 M.login("lincoln.internal.web.mcr@gmail.com", local_settings.email_pass)
 M.select()
@@ -26,7 +33,7 @@ for num in data[0].split():
     if date.timetuple() < (datetime.date.today()- datetime.timedelta(0)).timetuple() :
       continue
 
-    start_date = last_sunday(date.date()) + datetime.timedelta(1)
+    start_date = nearest_sunday(date.date()) + datetime.timedelta(1)
 
     if e.is_multipart():
       for msg in e.get_payload():
