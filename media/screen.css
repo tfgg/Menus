@@ -8,8 +8,6 @@ body {
   background:#222;
   color:white;
   font-size:1.2em;
-
-  margin:0.5em;
 }
 
 ul.meals {
@@ -19,10 +17,8 @@ ul.meals {
 }
 
 li.meal {
-  margin-bottom:1em;
   margin:0;
   padding:0;
-  padding-bottom:1em;
 }
 
 ul.mealitems {
@@ -34,22 +30,32 @@ ul.mealitems {
 }
 
 ul.mealitems li {
-  margin-bottom:0.2em;
 }
 
-li.meal_title {
+li.meal_title a {
   color:#999;
+  padding:0.5em;
+  border-top:1px solid #222;
+  display:block;
+  background:#333 url('bg_weave.png');
 }
 
 li.meal_note {
   font-style:italic;
+  display:none;
 }
 
 li.meal_item {
-
+  display:none;
+  padding:0.2em;
+  padding-left:1.0em;
 }
 
 .day_title {
   font-weight:bold;
   color:#666;
+}
+
+li.meal-Dinner li.meal_item {
+  /*display:block;*/
 }

@@ -1,0 +1,13 @@
+body {
+  color:black;
+  background:white;
+  font-size:1.0em;
+}
+
+li.meal_title {
+  color:#999;
+}
+
+.day_title {
+  color:#ccc;
+}

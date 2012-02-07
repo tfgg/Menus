@@ -1,7 +1,11 @@
 {% extends "page.html" %}
 
 {% block header %}
-
+<script>
+function toggle_items(meal_id) {
+  $('#' + meal_id + ' .meal_item').slideToggle();
+}
+</script>
 {% endblock %}
 
 {% block content %}
@@ -9,10 +13,10 @@
   <strong class='day_title'>{{ weekday }} {{ d }}</strong>
   <ul class='meals'>
   {% for meal in meals %}
-    <li class='meal'>
+    <li class='meal meal-{{ meal.type.name }}' id='meal-{{ meal.id }}'>
         <ul class='mealitems'>
-          <li class='meal_title'>{{ meal.type.name }}</li>
-          <li class='meal_note'>{{ meal.notes }}</li>
+          <li class='meal_title'><a onclick="toggle_items('meal-{{ meal.id }}')">{{ meal.type.name }}</a></li>
+          {% if meal.notes %}<li class='meal_note'>{{ meal.notes }}</li>{% endif %}
           {% for item in meal.mealitem_set.all %}
           <li class='meal_item'>{{ item.name }} {% if item.vegetarian %}(V){% endif %}</li>
           {% endfor %}
