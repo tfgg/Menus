@@ -12,4 +12,5 @@ class MealAdmin(admin.ModelAdmin):
 admin.site.register(models.Meal, MealAdmin)
 admin.site.register(models.MealType)
 admin.site.register(models.MealItem)
+admin.site.register(models.MealRating)
 
