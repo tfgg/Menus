@@ -1,10 +1,16 @@
 import datetime
 
+from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 from models import Meal, MealType, MealItem, MealRating
+
+def render_with_context(request, *args, **kwargs):
+  kwargs['context_instance'] = RequestContext(request)
+  
+  return render_to_response(*args, **kwargs)
 
 def group_meals(meals):
   groups = []
@@ -31,7 +37,7 @@ def home(request):
 
   groups = group_meals(meals)
 
-  return render_to_response('home.html', {'groups': groups,})
+  return render_with_context(request, 'home.html', {'groups': groups,})
 
 def today(request):
   now = datetime.date.today()
@@ -39,7 +45,7 @@ def today(request):
   
   groups = group_meals(meals) 
   
-  return render_to_response('today.html', {'groups': groups,})
+  return render_with_context(request, 'today.html', {'groups': groups,})
 
 def rate(request, meal_id, rating):
   meal = Meal.objects.get(pk=meal_id)

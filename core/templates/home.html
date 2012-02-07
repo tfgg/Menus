@@ -17,7 +17,7 @@
           <li class='meal_item'>{{ item.name }} {% if item.vegetarian %}(V){% endif %}</li>
           {% endfor %}
         </ul>
-        {% if not meal.rating %}
+        <!--{% if not meal.rating %}
           <a href='{% url rate_meal meal_id=meal.id,rating=1 %}'><img src='/media/stargrey.png'/></a>
           <a href='{% url rate_meal meal_id=meal.id,rating=2 %}'><img src='/media/stargrey.png'/></a>
           <a href='{% url rate_meal meal_id=meal.id,rating=3 %}'><img src='/media/stargrey.png'/></a>
@@ -29,7 +29,7 @@
           <a href='{% url rate_meal meal_id=meal.id,rating=3 %}'>{% if meal.rating >= 3 %}<img src='/media/star.png'/>{% else %}<img src='/media/unstar.png'/>{% endif %}</a>
           <a href='{% url rate_meal meal_id=meal.id,rating=4 %}'>{% if meal.rating >= 4 %}<img src='/media/star.png'/>{% else %}<img src='/media/unstar.png'/>{% endif %}</a>
           <a href='{% url rate_meal meal_id=meal.id,rating=5 %}'>{% if meal.rating >= 5 %}<img src='/media/star.png'/>{% else %}<img src='/media/unstar.png'/>{% endif %}</a>
-        {% endif %}
+        {% endif %}-->
     </li>
   {% endfor %}
   </ul>
