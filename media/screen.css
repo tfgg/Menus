@@ -5,7 +5,7 @@
 
 body {
   font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background:#222;
+  background:#000;
   color:white;
   font-size:1.2em;
 }
@@ -33,16 +33,18 @@ ul.mealitems li {
 }
 
 li.meal_title a {
-  color:#999;
+  color:#ccc;
   padding:0.5em;
   border-top:1px solid #222;
   display:block;
   background:#333 url('bg_weave.png');
+  font-size:1.2em;
 }
 
 li.meal_note {
   font-style:italic;
   display:none;
+  padding-left:0.75em;
 }
 
 li.meal_item {
@@ -52,10 +54,17 @@ li.meal_item {
 }
 
 .day_title {
-  font-weight:bold;
-  color:#666;
+  font-size:0.9em;
+  color:#555;
+  margin-left:0.5em;
+  margin-top:0.3em;
 }
 
-li.meal-Dinner li.meal_item {
-  /*display:block;*/
+.weekday {
+  color:#999;
+  font-size:1.1em;
+}
+
+li.meal-Dinner li.meal_item, li.meal-Dinner li.meal_note {
+  display:block;
 }

@@ -4,13 +4,14 @@
 <script>
 function toggle_items(meal_id) {
   $('#' + meal_id + ' .meal_item').slideToggle();
+  $('#' + meal_id + ' .meal_note').slideToggle();
 }
 </script>
 {% endblock %}
 
 {% block content %}
   {% for weekday, d, meals in groups %}
-  <strong class='day_title'>{{ weekday }} {{ d }}</strong>
+  <div class='day_title'><span class='weekday'>{{ weekday }}</span> {{ d }}</div>
   <ul class='meals'>
   {% for meal in meals %}
     <li class='meal meal-{{ meal.type.name }}' id='meal-{{ meal.id }}'>
