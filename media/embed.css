@@ -11,3 +11,11 @@ li.meal_title {
 .day_title {
   color:#ccc;
 }
+
+li.meal_item {
+  display:block;
+}
+
+li.meal_note {
+  display:block;
+}
