@@ -6,7 +6,7 @@
 
 {% block content %}
   {% for weekday, d, meals in groups %}
-  <strong class='day_title'>{{ weekday }} {{ d }}</strong>
+  <strong>Menu for {{ weekday }} {{ d }}</strong>
   <ul class='meals'>
   {% for meal in meals %}
     <li class='meal'>

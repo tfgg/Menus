@@ -38,5 +38,7 @@ function toggle_items(meal_id) {
     </li>
   {% endfor %}
   </ul>
+  {% empty %}
+    <strong>We don't have a menu for this week [yet].</strong>
   {% endfor %}
 {% endblock %}

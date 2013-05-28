@@ -22,7 +22,7 @@ def nearest_sunday(date):
 M = imaplib.IMAP4_SSL("imap.gmail.com")
 M.login("lincoln.internal.web.mcr@gmail.com", local_settings.email_pass)
 M.select()
-typ, data = M.search(None, '(SUBJECT "Menu")')
+typ, data = M.search(None, '(SUBJECT "menu")')
 for num in data[0].split():
     typ, data = M.fetch(num, '(RFC822)')
 
@@ -30,14 +30,19 @@ for num in data[0].split():
 
     date = datetime.datetime.fromtimestamp(time.mktime(email.utils.parsedate(e.get('date'))))
 
-    if date.timetuple() < (datetime.date.today()- datetime.timedelta(0)).timetuple() :
+    print date, e.get('subject')
+
+    if date.timetuple() < (datetime.date.today()- datetime.timedelta(2)).timetuple() :
       continue
 
     start_date = nearest_sunday(date.date()) + datetime.timedelta(1)
 
+    print e.is_multipart()
+
     if e.is_multipart():
       for msg in e.get_payload():
-        if msg['Content-Type'] == 'text/html; charset=ISO-8859-1':
+        print "Hello 2", msg['Content-Type']
+        if msg['Content-Type'] in ['text/html; charset=ISO-8859-1', 'text/html; charset="iso-8859-1"', 'text/html; charset="us-ascii"', 'text/html; charset="Windows-1252"']:
           email_html = msg.get_payload()
 
           email_html = quopri.decodestring(email_html)

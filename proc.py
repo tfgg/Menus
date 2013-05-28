@@ -41,7 +41,6 @@ def parse_html(data, start_date, dry_run=False):
 
   rows = table[0].xpath('//tr')
 
-
   week = None
   days = []
 
@@ -157,4 +156,4 @@ if __name__ == "__main__":
   data = quopri.decodestring(data)
 
   start_date = datetime.date(int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]))
-  parse_html(data, date, False)
+  parse_html(data, start_date, False)
